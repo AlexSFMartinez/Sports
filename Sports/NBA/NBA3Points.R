@@ -19,3 +19,8 @@ hist(NBA$average.z)
 sd(NBA$average.z)
 
 summary(NBA$average.z)
+
+#new stuff
+
+
+#Hello
