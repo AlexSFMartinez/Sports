@@ -1,1 +1,1 @@
-The goal is to create predictive models using machine learning. 
+The goal of this repo is to share my coding journey with R and Python. This includes writing scripts for data extraction, data cleaning, feature engineering, data analysis, machine learning, and data visualization by using real world sports data in MLB and NBA. 
