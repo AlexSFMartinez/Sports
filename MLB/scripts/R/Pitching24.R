@@ -1,4 +1,4 @@
-pit24 <- read.csv("C:/Users/alexs/OneDrive/Desktop/MLB/data/Pitchers24.csv")
+pit24 <- read.csv("C:/Users/alexs/OneDrive/Desktop/Sports/MLB/data/Pitchers24.csv")
 library("dplyr")
 library("stringr")
 
@@ -16,10 +16,10 @@ pit24$cWPA <- as.numeric(sub("%", "", pit24$cWPA,fixed=TRUE))/100
 pit24 <- pit24 %>%
   distinct(Player, .keep_all = TRUE) %>%
   mutate(across(is.numeric, round, digits = 3))%>%
-  filter(IP > 0)
+  filter(IP >= 27)
 
 summary(pit24$ERA)
 summary(pit24$WHIP)
 
-lm <- lm(data = pit24, ERA ~ )
+lm <- lm(data = pit24, ERA ~ OPS)
 summary(lm)
