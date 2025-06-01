@@ -1,3 +1,5 @@
+# --- R / RStudio ---
+
 # History files
 .Rhistory
 .Rapp.history
@@ -25,26 +27,8 @@
 *.out
 *.aux
 
-# OS-specific files
-.DS_Store        # macOS
-Thumbs.db        # Windows
-
-# Git-related
-.gitignore
-
-# Temporary folders
-__pycache__/
-*.tmp
-*.swp
-
-# VSCode or other IDE configs (if used)
-.vscode/
-.idea/
-
-# Renviron / API keys / local settings
-*.Renviron
-.env
-.env.*
+# Shiny app logs
+.Rshinyapp.log
 
 # Quarto / RMarkdown cache
 *_cache/
@@ -52,9 +36,72 @@ __pycache__/
 *.nb.html
 *.utf8.md
 
-# Shiny app logs
-.Rshinyapp.log
+# Renviron / API keys / local settings
+*.Renviron
+.env
+.env.*
 
-# Python/RPython-related (if mixing languages)
-*.py[cod]
+# --- Python ---
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# envs
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
