@@ -1,5 +1,60 @@
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+.Ruserdata
+
+# RStudio files
 .Rproj.user/
-*.Rhistory
-*.RData
-*.Ruserdata
 *.Rproj
+
+# R package build files
+.Rcheck/
+
+# Output files
+*.pdf
+*.html
+*.docx
+*.xlsx
+*.csv
+
+# Cache and log files
+*.log
+*.out
+*.aux
+
+# OS-specific files
+.DS_Store        # macOS
+Thumbs.db        # Windows
+
+# Git-related
+.gitignore
+
+# Temporary folders
+__pycache__/
+*.tmp
+*.swp
+
+# VSCode or other IDE configs (if used)
+.vscode/
+.idea/
+
+# Renviron / API keys / local settings
+*.Renviron
+.env
+.env.*
+
+# Quarto / RMarkdown cache
+*_cache/
+.cache/
+*.nb.html
+*.utf8.md
+
+# Shiny app logs
+.Rshinyapp.log
+
+# Python/RPython-related (if mixing languages)
+*.py[cod]
+__pycache__/
