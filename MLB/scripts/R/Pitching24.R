@@ -23,3 +23,4 @@ summary(pit24$WHIP)
 
 lm <- lm(data = pit24, ERA ~ OPS)
 summary(lm)
+#Testing Github
