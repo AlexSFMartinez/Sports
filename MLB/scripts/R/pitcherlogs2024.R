@@ -5,8 +5,9 @@ ls("package:baseballr")
 players<- fg_pitch_leaders(startseason = 2024, endseason = 2024)
 players <- players %>%
   filter(IP >= 27)
+#I feel 27 IP gets rid of outliers but this number is up for debate
 
-pitcher_logs_2024 <- list()  # named list to store each pitcher's data
+pitcher_logs_2024 <- list()  #bucket for pitcher logs
 
 for (i in 1:nrow(players)) {
   name <- players$PlayerName[i]
@@ -14,9 +15,8 @@ for (i in 1:nrow(players)) {
   
   message("Fetching data for: ", name)
   
-  # Use tryCatch to skip failed scrapes gracefully
   logs <- tryCatch({
-    Sys.sleep(2)  # be polite to FanGraphs!
+    Sys.sleep(2)  # Sleep interval to not overload servers
     pitcher_game_logs_fg(playerid = id, year = 2024)
   }, error = function(e) {
     message("Failed for: ", name)
