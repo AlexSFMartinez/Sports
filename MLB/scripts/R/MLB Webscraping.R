@@ -1,31 +1,42 @@
 library(rvest)
 library(tidyverse)
+library(purrr)
 
-years <- c(2000:2024)
-urls <- list()
-for (i in 1:length(years)) {
-  url <- paste0("https://www.baseball-reference.com/leagues/majors/", years[i], ".shtml")
-  urls[[i]] <- url
-}
+urls <- tibble(
+  year = 2000:2024,
+  url = paste0("https://www.baseball-reference.com/leagues/majors/", year, ".shtml")
+)
 
-urls <- urls %>%
-  unlist() %>%
-  as.data.frame() %>%
-  dplyr::mutate(year = years) %>%
-  dplyr::rename(url = ".")
-
-scrape_data_funcion <- function(url, year){
-  df <- url %>%
-    xml2:: read_html() %>%
-    rvest::html_elements("table") %>%
-    rvest::html_table(trim = TRUE)
+scrape_first_table <- function(url, year) {
+  message("Scraping year: ", year)
+  Sys.sleep(2)  # INTERVALS SCRAPING REQUESTS BY 2 SECONDS
   
-  df
+  tryCatch({
+    tables <- read_html(url) %>%
+      html_elements("table") %>%
+      html_table(trim = TRUE)
+    
+    if (length(tables) >= 1) {
+      df <- tables[[1]]
+      df$year <- year
+      return(df)
+    } else {
+      return(NULL)
+    }
+  }, error = function(e) {
+    message("Failed for year ", year, ": ", e$message)
+    return(NULL)
+  })
 }
 
+batting <- map2(
+  urls$url, urls$year,
+  ~ scrape_first_table(.x, .y)
+)
 
-mlb23 <- scrape_data_funcion(urls$url[24], 2023)
-mlb23 <- as.data.frame(mlb23)
+names(batting) <- urls$year  #Name list elements by year
 
-mlb23 <- mlb23[-c(31,32,33),]
+#CREATES YEARLY DATAFRAME AND REMOVES LEAGUE AVERAGE AND ROW OF CHARACTERS
+mlb24 <- batting[["2024"]]
+mlb24 <- mlb24[-c(31:33),]
 
