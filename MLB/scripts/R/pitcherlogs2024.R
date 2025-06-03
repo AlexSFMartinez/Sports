@@ -5,10 +5,11 @@ ls("package:baseballr") #So I can review all functions in baseballr
 pitchers<- fg_pitch_leaders(startseason = 2024, endseason = 2024)
 pitchers <- pitchers %>%
   filter(IP >= 27)
-#I feel 27 IP gets rid of outliers but this number is up for debate
+#I feel 27 IP gets rid of outliers, particularly non-pitchers but this number is up for debate
 
 hist(pitchers$ERA)
-summary(pitchers$ERA) #league average ERA for 2024 is 4.01 and this outputs 4.07.
+summary(pitchers$ERA) 
+#league average ERA for 2024 is 4.01 and this outputs 4.07.
 #I can possibly be more selective to lower the ERA to match? 
 #Should I aim for a normal distribution?
 

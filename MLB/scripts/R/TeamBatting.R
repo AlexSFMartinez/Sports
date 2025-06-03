@@ -34,9 +34,9 @@ batting <- map2(
   ~ scrape_first_table(.x, .y)
 )
 
-names(batting) <- urls$year  #Name list elements by year
+names(batting) <- urls$year
 
 #CREATES YEARLY DATAFRAME AND REMOVES LEAGUE AVERAGE AND ROW OF CHARACTERS
-mlb24 <- batting[["2024"]]
-mlb24 <- mlb24[-c(31:33),]
+mlb00 <- batting[["2000"]]
+mlb00 <- mlb00[-c(31:33),]
 
